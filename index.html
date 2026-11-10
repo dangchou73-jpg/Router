@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analisis Perangkat Jaringan</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef3f9;
+    color: #1e293b;
+    padding: 25px;
+}
+
+.container {
+    max-width: 950px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #1764b0;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #1764b0;
+    color: white;
+    padding: 16px;
+}
+
+td {
+    padding: 18px 15px;
+    border-bottom: 1px solid #ddd;
+    line-height: 1.6;
+}
+
+tr:hover {
+    background: #f1f7ff;
+}
+
+td:first-child {
+    text-align: center;
+    font-weight: bold;
+}
+
+.device {
+    font-weight: bold;
+    color: #1764b0;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+button {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #1764b0;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #104a86;
+}
+
+.print {
+    background: #16a36a;
+}
+
+.print:hover {
+    background: #108252;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    th, td {
+        padding: 10px 7px;
+        font-size: 12px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+        margin: 0;
+    }
+
+    .buttons {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Analisis Perangkat Jaringan</h1>
+        <p>
+            Kegiatan 1: Mengenal perangkat jaringan
+            dan fungsi utamanya dalam jaringan komputer.
+        </p>
+    </div>
+
+    <table id="tabel">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama Perangkat Jaringan</th>
+                <th>Fungsi Utama dalam Jaringan</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td class="device">Router</td>
+                <td>
+                    Menghubungkan dua atau lebih jaringan
+                    yang berbeda dan mengarahkan paket data
+                    ke tujuan yang tepat.
+                </td>
+            </tr>
+
+            <tr>
+                <td>2.</td>
+                <td class="device">Switch</td>
+                <td>
+                    Menghubungkan beberapa perangkat dalam
+                    satu jaringan LAN dan meneruskan data
+                    ke perangkat tujuan.
+                </td>
+            </tr>
+
+            <tr>
+                <td>3.</td>
+                <td class="device">Access Point</td>
+                <td>
+                    Menghubungkan perangkat seperti HP dan
+                    laptop ke jaringan melalui koneksi
+                    Wi-Fi (nirkabel).
+                </td>
+            </tr>
+
+            <tr>
+                <td>4.</td>
+                <td class="device">Kabel UTP & Konektor RJ-45</td>
+                <td>
+                    Menghubungkan perangkat jaringan secara
+                    fisik menggunakan kabel Ethernet agar
+                    dapat mengirim dan menerima data.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="buttons">
+        <button onclick="salinJawaban()">
+            Salin Jawaban
+        </button>
+
+        <button class="print" onclick="window.print()">
+            Cetak Tugas
+        </button>
+    </div>
+
+    <div class="footer">
+        Analisis Perangkat Jaringan | Teknologi Komputer
+    </div>
+
+</div>
+
+<script>
+function salinJawaban() {
+    const tabel = document.getElementById("tabel");
+    const teks = Array.from(tabel.rows)
+        .map(row =>
+            Array.from(row.cells)
+                .map(cell => cell.innerText)
+                .join("\t")
+        )
+        .join("\n");
+
+    navigator.clipboard.writeText(teks)
+        .then(() => alert("Jawaban berhasil disalin!"))
+        .catch(() => alert("Gagal menyalin jawaban."));
+}
+</script>
+
+</body>
+</html>
